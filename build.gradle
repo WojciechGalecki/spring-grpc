@@ -2,11 +2,16 @@ plugins {
     id 'org.springframework.boot' version '2.2.2.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+    id 'idea'
 }
 
 group = 'wg'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
 
 configurations {
     developmentOnly
@@ -18,9 +23,10 @@ configurations {
     }
 }
 
-repositories {
-    mavenCentral()
-}
+ext.depVersions = [
+        'GRPC'  : '1.26.0',
+        'SPRING': '2.2.2.RELEASE'
+]
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
@@ -31,8 +37,4 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
-}
-
-test {
-    useJUnitPlatform()
 }
