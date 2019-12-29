@@ -17,7 +17,7 @@ dependencies {
     compile project(':grpc-interface')
 
     compile "org.springframework.boot:spring-boot-starter:${depVersions.SPRING}"
-    compile "net.devh:grpc-server-spring-boot-starter:${depVersions.GRPC_SERVER_SPRING}"
+    compile "net.devh:grpc-server-spring-boot-starter:${depVersions.GRPC_SPRING}"
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 

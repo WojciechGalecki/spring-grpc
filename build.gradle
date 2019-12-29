@@ -24,9 +24,9 @@ configurations {
 }
 
 ext.depVersions = [
-        'GRPC'  : '1.26.0',
+        'GRPC'  : '1.25.0',
         'SPRING': '2.2.2.RELEASE',
-        'GRPC_SERVER_SPRING': '2.6.1.RELEASE'
+        'GRPC_SPRING': '2.6.1.RELEASE'
 ]
 
 dependencies {
