@@ -25,16 +25,12 @@ configurations {
 
 ext.depVersions = [
         'GRPC'  : '1.26.0',
-        'SPRING': '2.2.2.RELEASE'
+        'SPRING': '2.2.2.RELEASE',
+        'GRPC_SERVER_SPRING': '2.6.1.RELEASE'
 ]
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-    testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+    compile "org.springframework.boot:spring-boot-starter:${depVersions.SPRING}"
+    //implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    //testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 }
