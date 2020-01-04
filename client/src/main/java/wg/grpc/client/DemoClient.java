@@ -18,22 +18,15 @@ public class DemoClient {
     @GrpcClient("localhost:9090")
     private DemoServiceGrpc.DemoServiceBlockingStub client;
 
-    /*ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
-        // disable SSL/TLS - for local development
-        //.usePlaintext()
-            .build();
-
-    private DemoServiceGrpc.DemoServiceBlockingStub client = DemoServiceGrpc.newBlockingStub(channel);*/
-
-    @PostConstruct
+    //@PostConstruct
     public String getDemo() {
         DemoRequest request = DemoRequest.newBuilder()
             .setNumber(100)
             .build();
 
-        log.info("Sending request to the server...");
+        log.info("Sending demo request to the server...");
         DemoResponse response = client.demo(request);
-        log.info("Response: {}", response.toString());
+        log.info("Demo response: {}", response.toString());
 
         return response.getResult();
     }

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package movie;
+
+option java_package = "com.proto.movie";
+option java_multiple_files = true;
+
+message Movie {
+    string id = 1;
+    string title = 2;
+    repeated MovieGenre genres = 3;
+    repeated Person directors = 4;
+    repeated Person writers = 5;
+    repeated Person stars = 6;
+    int32 year_of_production = 7;
+    int32 duration_minutes = 8;
+}
+
+enum MovieGenre {
+    ACTION = 0;
+    ADVENTURE = 1;
+    ANIMATION = 2;
+    BIOGRAPHY = 3;
+    COMEDY = 4;
+    CRIME = 5;
+    DRAMA = 6;
+    FAMILY = 7;
+    FANTASY = 8;
+    FILM_NOIR = 9;
+    HISTORY = 10;
+    HORROR = 11;
+    MUSIC = 12;
+    MUSICAL = 13;
+    MYSTERY = 14;
+    ROMANCE = 15;
+    SCI_FI = 16;
+    SPORT = 17;
+    THRILLER = 18;
+    WAR = 19;
+    WESTERN = 20;
+}
+
+message Person {
+    string first_name = 1;
+    string last_name = 2;
+}
+
+message AddMovieResponse {
+    string movie_id = 1;
+}
+
+service MovieService {
+    rpc AddMovie (Movie) returns (AddMovieResponse) {}
+}

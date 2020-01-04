@@ -1,6 +1,16 @@
+#grpc api
 grpc:
   server:
     security:
       enabled: false
 
-    #port: 50051
+#mongodb
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: movie_db
+      authentication-database: admin
+      username: user
+      password: user

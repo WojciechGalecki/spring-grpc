@@ -26,11 +26,11 @@ configurations {
 ext.depVersions = [
         'GRPC'  : '1.25.0',
         'SPRING': '2.2.2.RELEASE',
-        'GRPC_SPRING': '2.6.1.RELEASE'
+        'GRPC_SPRING': '2.6.1.RELEASE',
+        'EMBEDED_MONGO': '2.2.0',
+        'MODEL_MAPPER': '2.3.6'
 ]
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter:${depVersions.SPRING}"
-    //implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    //testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 }

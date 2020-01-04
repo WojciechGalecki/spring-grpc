@@ -18,6 +18,9 @@ dependencies {
 
     compile "org.springframework.boot:spring-boot-starter:${depVersions.SPRING}"
     compile "net.devh:grpc-server-spring-boot-starter:${depVersions.GRPC_SPRING}"
+    compile "org.springframework.boot:spring-boot-starter-data-mongodb:${depVersions.SPRING}"
+    compile "org.modelmapper:modelmapper:${depVersions.MODEL_MAPPER}"
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
@@ -25,4 +28,5 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testCompile "io.grpc:grpc-testing:${depVersions.GRPC}"
+    testCompile "de.flapdoodle.embed:de.flapdoodle.embed.mongo:${depVersions.EMBEDED_MONGO}"
 }
