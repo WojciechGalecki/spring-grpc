@@ -1,6 +1,7 @@
 package wg.grpc.server;
 
 import io.grpc.stub.StreamObserver;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 import wg.grpc.mapper.MovieMapper;
@@ -13,11 +14,10 @@ import com.proto.movie.MovieServiceGrpc;
 
 @GrpcService
 @Slf4j
+@AllArgsConstructor
 public class MovieService extends MovieServiceGrpc.MovieServiceImplBase {
 
     private final MovieRepository movieRepository;
-
-    public MovieService(MovieRepository movieRepository) {this.movieRepository = movieRepository;}
 
     @Override
     public void addMovie(Movie request, StreamObserver<AddMovieResponse> responseObserver) {
@@ -26,7 +26,7 @@ public class MovieService extends MovieServiceGrpc.MovieServiceImplBase {
         MovieModel movieModel = MovieMapper.map(request);
 
         MovieModel insertedMovie = movieRepository.insert(movieModel);
-        String movieId = insertedMovie.id;
+        String movieId = insertedMovie.getId();
         log.info("Added new movie with id: {}", movieId);
 
         responseObserver.onNext(AddMovieResponse.newBuilder()

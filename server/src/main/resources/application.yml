@@ -3,6 +3,7 @@ grpc:
   server:
     security:
       enabled: false
+    port: 50051
 
 #mongodb
 spring:

@@ -17,7 +17,7 @@ import com.proto.movie.Person;
 @Slf4j
 public class MovieClient {
 
-    @GrpcClient("localhost:9090")
+    @GrpcClient("localhost:50051")
     private MovieServiceGrpc.MovieServiceBlockingStub client;
 
     @PostConstruct
